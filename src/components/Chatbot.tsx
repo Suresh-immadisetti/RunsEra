@@ -17,7 +17,6 @@ function Chatbot() {
     setTimeout(() => {
       const responses = [
         "Thank you for your message! Our team will get back to you soon.",
-        "I'd be happy to help you with that. Can you provide more details?",
         "For immediate assistance, please contact us at +91-8309583591 or use the WhatsApp button."
       ];
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];
