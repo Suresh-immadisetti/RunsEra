@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://suresh-immadisetti.github.io/RunsEra",
+  "homepage": "https://runsera.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -b gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
