@@ -1,14 +1,15 @@
-// Layout.tsx (updated)
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+// Layout.tsx
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
-  Menu, X, MessageCircle, Globe,
+  Menu, X, MessageCircle, Globe, ChevronDown,
   Facebook, Twitter, Instagram, Linkedin, Youtube
 } from 'lucide-react';
 import WhatsAppButton from './WhatsAppButton';
 import Chatbot from './Chatbot';
 import blackLogo from '../assets/logo-black.png';
 import whiteLogo from '../assets/logo-white.png';
+import { servicesList, Service } from '../pages/servicesData';
 
 // Pinterest icon component
 const Pinterest = () => (
@@ -30,7 +31,10 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const servicesButtonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,10 +49,23 @@ function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setShowServicesDropdown(false);
   }, [location]);
 
   const handleMenuItemClick = () => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
+  const handleServiceSelect = (serviceId: string) => {
+    navigate(`/services/${serviceId}`);
+    setShowServicesDropdown(false);
+    setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
+  const navigateToServicesPage = () => {
+    navigate('/services');
     window.scrollTo(0, 0);
   };
 
@@ -98,16 +115,45 @@ function Layout({ children }: LayoutProps) {
                 >
                   About Us
                 </Link>
-                <Link 
-                  to="/services" 
-                  className={`font-medium transition-colors ${
-                    location.pathname === '/services' 
-                      ? 'text-[#00AEEF]' 
-                      : 'text-gray-800 hover:text-[#00AEEF]'
-                  }`}
+                
+                {/* Services Dropdown - Hoverable on desktop */}
+                <div 
+                  className="relative group"
+                  ref={servicesButtonRef}
+                  onMouseEnter={() => setShowServicesDropdown(true)}
+                  onMouseLeave={() => setShowServicesDropdown(false)}
                 >
-                  Our Services
-                </Link>
+                  <button
+                    onClick={navigateToServicesPage}
+                    className={`flex items-center font-medium transition-colors ${
+                      location.pathname.startsWith('/services') 
+                        ? 'text-[#00AEEF]' 
+                        : 'text-gray-800 hover:text-[#00AEEF]'
+                    }`}
+                  >
+                    Our Services
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${
+                      showServicesDropdown ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                  
+                  <div className={`absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl z-50 border border-gray-200 transition-opacity duration-300 ${
+                    showServicesDropdown ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}>
+                    <div className="py-1">
+                      {servicesList.map((service: Service) => (
+                        <button
+                          key={service.id}
+                          onClick={() => handleServiceSelect(service.id)}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          {service.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
                 <Link 
                   to="/clients" 
                   className={`font-medium transition-colors ${
@@ -183,17 +229,38 @@ function Layout({ children }: LayoutProps) {
               >
                 About Us
               </Link>
-              <Link 
-                to="/services" 
-                onClick={handleMenuItemClick}
-                className={`block px-3 py-2 font-medium ${
-                  location.pathname === '/services' 
-                    ? 'text-[#00AEEF]' 
-                    : 'text-gray-800 hover:text-[#00AEEF]'
-                }`}
-              >
-                Our Services
-              </Link>
+              
+              {/* Mobile Services Dropdown - Click to open */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+                  className={`flex items-center w-full px-3 py-2 font-medium ${
+                    location.pathname.startsWith('/services') 
+                      ? 'text-[#00AEEF]' 
+                      : 'text-gray-800 hover:text-[#00AEEF]'
+                  }`}
+                >
+                  Our Services
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${
+                    showServicesDropdown ? 'rotate-180' : ''
+                  }`} />
+                </button>
+                
+                {showServicesDropdown && (
+                  <div className="pl-4 mt-1 space-y-1">
+                    {servicesList.map((service: Service) => (
+                      <button
+                        key={service.id}
+                        onClick={() => handleServiceSelect(service.id)}
+                        className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      >
+                        {service.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <Link 
                 to="/clients" 
                 onClick={handleMenuItemClick}

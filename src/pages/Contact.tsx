@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
-// Since Pinterest isn't available in lucide-react, we'll create a custom component
+// Pinterest custom component
 const Pinterest = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -22,18 +22,33 @@ const Pinterest = () => (
 function Contact() {
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="relative text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#002E6E] to-[#00AEEF]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      {/* Hero Section with Enhanced Background Image */}
+      <section className="relative text-white min-h-[500px] flex items-center">
+        {/* Background Image with reduced opacity gradient overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')"
+          }}
+        ></div>
+        
+        {/* Darker gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#002E6E]/90 to-[#00AEEF]/90"></div>
+        
+        {/* Content with higher z-index */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
+              Get In Touch
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto drop-shadow-md">
               Ready to transform your business? Let's start the conversation.
             </p>
           </div>
         </div>
-        <div className="relative h-16 overflow-hidden">
+        
+        {/* Curved bottom shape */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
           <svg className="absolute bottom-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 74" fill="none">
             <path d="M0,37 C240,74 480,74 720,37 C960,0 1200,0 1440,37 L1440,74 L0,74 Z" fill="#f0f9ff" />
           </svg>

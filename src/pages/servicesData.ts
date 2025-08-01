@@ -1,3 +1,4 @@
+// servicesData.ts
 import {
   BarChart2,
   Search,
@@ -12,6 +13,7 @@ import {
   Smartphone,
   Monitor,
   Target,
+  Briefcase,
   LucideIcon
 } from 'lucide-react';
 
@@ -34,6 +36,181 @@ export interface Service {
 }
 
 export const servicesList: Service[] = [
+  {
+    id: 'web-development',
+    name: 'Website Design & Development',
+    description: 'Custom websites designed for performance, conversions, and user experience.',
+    excerpt: 'Build high-performance websites that convert',
+    icon: Layout,
+    image: 'https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    content: 'We build high-performance websites with modern technologies that deliver exceptional user experiences and drive conversions. Our development process focuses on speed, security, and scalability while ensuring your site reflects your brand identity.',
+    benefits: [
+      'Improved online presence and credibility',
+      'Higher conversion rates and lead generation',
+      'Better user experience and navigation',
+      'Technical reliability and security',
+      'Future-proof architecture and scalability'
+    ],
+    process: [
+      { 
+        title: 'Planning', 
+        description: 'Requirements gathering and wireframing' 
+      },
+      { 
+        title: 'Design', 
+        description: 'UI/UX mockups and prototyping' 
+      },
+      { 
+        title: 'Development', 
+        description: 'Coding and implementation of all features' 
+      },
+      { 
+        title: 'Launch', 
+        description: 'Testing, optimization, and deployment' 
+      }
+    ],
+    categories: ['development', 'design']
+  },
+  {
+    id: 'software-development',
+    name: 'Custom Software Development',
+    description: 'Tailored software solutions that solve business challenges and drive efficiency.',
+    excerpt: 'Build custom software for your unique business needs',
+    icon: Code,
+    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    content: 'We build tailored software solutions that streamline operations, solve business challenges, and create competitive advantages. Our development process focuses on understanding your unique requirements and delivering scalable, maintainable solutions.',
+    benefits: [
+      'Customized solutions for your specific needs',
+      'Improved operational efficiency',
+      'Competitive advantage in your industry',
+      'Scalable architecture for future growth',
+      'Ongoing support and maintenance'
+    ],
+    process: [
+      { 
+        title: 'Analysis', 
+        description: 'Requirements gathering and planning' 
+      },
+      { 
+        title: 'Design', 
+        description: 'System architecture and UX planning' 
+      },
+      { 
+        title: 'Development', 
+        description: 'Coding and implementation' 
+      },
+      { 
+        title: 'Deployment', 
+        description: 'Testing, launch, and training' 
+      }
+    ],
+    categories: ['development', 'software']
+  },
+  {
+    id: 'mobile-apps',
+    name: 'Mobile App Development',
+    description: 'Engaging mobile experiences for iOS and Android that drive business growth.',
+    excerpt: 'Create powerful mobile experiences for your customers',
+    icon: Smartphone,
+    image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    content: 'We create high-performance mobile applications that deliver seamless user experiences and drive business growth. Our mobile development expertise covers both iOS and Android platforms, with a focus on intuitive design and robust functionality.',
+    benefits: [
+      'Enhanced customer engagement through mobile',
+      'Direct marketing channel to your audience',
+      'Improved accessibility and convenience',
+      'Competitive differentiation',
+      'New revenue opportunities'
+    ],
+    process: [
+      { 
+        title: 'Planning', 
+        description: 'Feature specification and technical requirements' 
+      },
+      { 
+        title: 'Design', 
+        description: 'UI/UX development and prototyping' 
+      },
+      { 
+        title: 'Development', 
+        description: 'App coding and feature implementation' 
+      },
+      { 
+        title: 'Launch', 
+        description: 'App store deployment and marketing' 
+      }
+    ],
+    categories: ['development', 'mobile']
+  },
+  {
+    id: 'ui-ux',
+    name: 'UI/UX Design',
+    description: 'Intuitive interfaces and user experiences that delight your customers.',
+    excerpt: 'Design experiences that users love',
+    icon: Monitor,
+    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    content: 'We craft user-centered digital experiences that improve satisfaction, increase conversions, and reduce development costs. Our design process combines aesthetic appeal with functional usability to create interfaces that users love.',
+    benefits: [
+      'Improved user satisfaction and retention',
+      'Higher conversion rates',
+      'Reduced development costs through proper planning',
+      'Faster task completion for users',
+      'Competitive differentiation through design'
+    ],
+    process: [
+      { 
+        title: 'Research', 
+        description: 'User needs analysis and journey mapping' 
+      },
+      { 
+        title: 'Wireframing', 
+        description: 'Structural layout and information architecture' 
+      },
+      { 
+        title: 'Design', 
+        description: 'Visual interface and interaction design' 
+      },
+      { 
+        title: 'Testing', 
+        description: 'User validation and feedback implementation' 
+      }
+    ],
+    categories: ['design', 'ux']
+  },
+  {
+    id: 'hr-staffing',
+    name: 'HR & Staffing Solutions',
+    description: 'Comprehensive human resource solutions to build your ideal team.',
+    excerpt: 'Build your dream team with our staffing solutions',
+    icon: Briefcase,
+    image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+    content: 'We provide end-to-end HR and staffing solutions to help you build high-performing teams. Our services range from talent acquisition and recruitment process outsourcing to workforce management and HR consulting, tailored to your organizational needs.',
+    benefits: [
+      'Access to top-tier talent across industries',
+      'Reduced hiring time and costs',
+      'Improved employee retention',
+      'Flexible staffing solutions',
+      'Comprehensive HR support'
+    ],
+    process: [
+      { 
+        title: 'Needs Assessment', 
+        description: 'Understanding your staffing requirements and company culture' 
+      },
+      { 
+        title: 'Talent Sourcing', 
+        description: 'Identifying and screening qualified candidates' 
+      },
+      { 
+        title: 'Selection', 
+        description: 'Interview coordination and candidate evaluation' 
+      },
+      { 
+        title: 'Onboarding', 
+        description: 'Smooth transition and integration of new hires' 
+      }
+    ],
+    categories: ['hr', 'staffing']
+  },
   {
     id: 'digital-marketing',
     name: 'Digital Marketing Strategy',
@@ -210,41 +387,6 @@ export const servicesList: Service[] = [
     categories: ['marketing', 'content']
   },
   {
-    id: 'web-development',
-    name: 'Website Design & Development',
-    description: 'Custom websites designed for performance, conversions, and user experience.',
-    excerpt: 'Build high-performance websites that convert',
-    icon: Layout,
-    image: 'https://images.pexels.com/photos/270360/pexels-photo-270360.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    content: 'We build high-performance websites with modern technologies that deliver exceptional user experiences and drive conversions. Our development process focuses on speed, security, and scalability while ensuring your site reflects your brand identity.',
-    benefits: [
-      'Improved online presence and credibility',
-      'Higher conversion rates and lead generation',
-      'Better user experience and navigation',
-      'Technical reliability and security',
-      'Future-proof architecture and scalability'
-    ],
-    process: [
-      { 
-        title: 'Planning', 
-        description: 'Requirements gathering and wireframing' 
-      },
-      { 
-        title: 'Design', 
-        description: 'UI/UX mockups and prototyping' 
-      },
-      { 
-        title: 'Development', 
-        description: 'Coding and implementation of all features' 
-      },
-      { 
-        title: 'Launch', 
-        description: 'Testing, optimization, and deployment' 
-      }
-    ],
-    categories: ['development', 'design']
-  },
-  {
     id: 'email-marketing',
     name: 'Email Marketing & Automation',
     description: 'Automated email campaigns that nurture leads and drive customer engagement.',
@@ -348,111 +490,6 @@ export const servicesList: Service[] = [
       }
     ],
     categories: ['marketing', 'social-media']
-  },
-  {
-    id: 'software-development',
-    name: 'Custom Software Development',
-    description: 'Tailored software solutions that solve business challenges and drive efficiency.',
-    excerpt: 'Build custom software for your unique business needs',
-    icon: Code,
-    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    content: 'We build tailored software solutions that streamline operations, solve business challenges, and create competitive advantages. Our development process focuses on understanding your unique requirements and delivering scalable, maintainable solutions.',
-    benefits: [
-      'Customized solutions for your specific needs',
-      'Improved operational efficiency',
-      'Competitive advantage in your industry',
-      'Scalable architecture for future growth',
-      'Ongoing support and maintenance'
-    ],
-    process: [
-      { 
-        title: 'Analysis', 
-        description: 'Requirements gathering and planning' 
-      },
-      { 
-        title: 'Design', 
-        description: 'System architecture and UX planning' 
-      },
-      { 
-        title: 'Development', 
-        description: 'Coding and implementation' 
-      },
-      { 
-        title: 'Deployment', 
-        description: 'Testing, launch, and training' 
-      }
-    ],
-    categories: ['development', 'software']
-  },
-  {
-    id: 'mobile-apps',
-    name: 'Mobile App Development',
-    description: 'Engaging mobile experiences for iOS and Android that drive business growth.',
-    excerpt: 'Create powerful mobile experiences for your customers',
-    icon: Smartphone,
-    image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    content: 'We create high-performance mobile applications that deliver seamless user experiences and drive business growth. Our mobile development expertise covers both iOS and Android platforms, with a focus on intuitive design and robust functionality.',
-    benefits: [
-      'Enhanced customer engagement through mobile',
-      'Direct marketing channel to your audience',
-      'Improved accessibility and convenience',
-      'Competitive differentiation',
-      'New revenue opportunities'
-    ],
-    process: [
-      { 
-        title: 'Planning', 
-        description: 'Feature specification and technical requirements' 
-      },
-      { 
-        title: 'Design', 
-        description: 'UI/UX development and prototyping' 
-      },
-      { 
-        title: 'Development', 
-        description: 'App coding and feature implementation' 
-      },
-      { 
-        title: 'Launch', 
-        description: 'App store deployment and marketing' 
-      }
-    ],
-    categories: ['development', 'mobile']
-  },
-  {
-    id: 'ui-ux',
-    name: 'UI/UX Design',
-    description: 'Intuitive interfaces and user experiences that delight your customers.',
-    excerpt: 'Design experiences that users love',
-    icon: Monitor,
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-    content: 'We craft user-centered digital experiences that improve satisfaction, increase conversions, and reduce development costs. Our design process combines aesthetic appeal with functional usability to create interfaces that users love.',
-    benefits: [
-      'Improved user satisfaction and retention',
-      'Higher conversion rates',
-      'Reduced development costs through proper planning',
-      'Faster task completion for users',
-      'Competitive differentiation through design'
-    ],
-    process: [
-      { 
-        title: 'Research', 
-        description: 'User needs analysis and journey mapping' 
-      },
-      { 
-        title: 'Wireframing', 
-        description: 'Structural layout and information architecture' 
-      },
-      { 
-        title: 'Design', 
-        description: 'Visual interface and interaction design' 
-      },
-      { 
-        title: 'Testing', 
-        description: 'User validation and feedback implementation' 
-      }
-    ],
-    categories: ['design', 'ux']
   },
   {
     id: 'conversion-optimization',

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Users, Award, Clock, Headphones, Target, Eye, Heart, Star } from 'lucide-react';
+import { ArrowRight, Users, Award, Clock, Headphones, Target, Eye, Heart, ChevronDown, X, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { servicesList } from './servicesData';
 
 // Import client logos from assets
 import AlekasLogo from '../assets/clients/alekas-logo.png';
@@ -66,8 +67,10 @@ function Home() {
   const [happyClients, setHappyClients] = useState(0);
   const [projectsCompleted, setProjectsCompleted] = useState(0);
   const [yearsExperience, setYearsExperience] = useState(0);
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const clientsContainerRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   // Smooth scroll to top function
   const scrollToTop = () => {
@@ -87,7 +90,22 @@ function Home() {
     } else {
       scrollToTop();
     }
+    setShowServicesDropdown(false);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesButtonRef.current && !servicesButtonRef.current.contains(event.target as Node)) {
+        setShowServicesDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Animate counters when stats section is in view
   useEffect(() => {
@@ -162,48 +180,156 @@ function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#002E6E] via-[#00AEEF] to-[#002E6E] text-white min-h-screen flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      {/* Chatbot Component */}
+      <Chatbot />
+
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <Link to="/" className="text-xl font-bold text-[#002E6E]">RunSera</Link>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-gray-700 hover:text-[#00AEEF] transition-colors">Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-[#00AEEF] transition-colors">About Us</Link>
+              <div className="relative">
+                <button 
+                  ref={servicesButtonRef}
+                  onClick={() => setShowServicesDropdown(!showServicesDropdown)}
+                  className="flex items-center text-gray-700 hover:text-[#00AEEF] transition-colors"
+                >
+                  Our Services
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${showServicesDropdown ? 'rotate-180' : ''}`} />
+                </button>
+                {showServicesDropdown && (
+                  <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl z-50 border border-gray-200">
+                    <div className="py-1">
+                      {servicesList.map((service) => (
+                        <Link
+                          key={service.id}
+                          to={`/services#${service.id}`}
+                          onClick={() => setShowServicesDropdown(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <button 
+                onClick={() => handleButtonClick('clients-section')}
+                className="text-gray-700 hover:text-[#00AEEF] transition-colors"
+              >
+                Our Clients
+              </button>
+              <Link to="/careers" className="text-gray-700 hover:text-[#00AEEF] transition-colors">Careers</Link>
+              <Link to="/blog" className="text-gray-700 hover:text-[#00AEEF] transition-colors">Blog</Link>
+            </div>
+            <div className="flex items-center">
+              <Link 
+                to="/contact" 
+                className="bg-gradient-to-r from-[#00AEEF] to-[#002E6E] text-white px-4 py-2 rounded-md hover:shadow-md transition-all"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section with Background Image */}
+      <section className="relative bg-gradient-to-br from-[#002E6E] via-[#00AEEF] to-[#002E6E] text-white pt-24 pb-32 overflow-hidden">
+        {/* Background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')",
+            backgroundBlendMode: "overlay"
+          }}
+        ></div>
+        
+        {/* Curved bottom shape */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg 
+            viewBox="0 0 1440 120" 
+            className="w-full h-auto"
+            preserveAspectRatio="none"
+          >
+            <path 
+              fill="#f0f9ff" 
+              fillOpacity="1" 
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,96C960,107,1056,117,1152,117.3C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+
+        {/* Background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-[#00AEEF] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
           <div className="absolute top-40 right-10 w-72 h-72 bg-[#002E6E] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
           <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="animate-fade-in-up">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                  RUNS
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 [text-shadow:_0_0_8px_black,0_0_8px_black,0_0_2px_black] opacity-80">
+                    RUNS
+                  </span>
+                  <span className="relative bg-gradient-to-r from-[#FF8C00] to-[#FFD700] bg-clip-text text-transparent font-extrabold tracking-tight">
+                    RUNS
+                  </span>
                 </span>{" "}
-                Your Brand Into a New Digital{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                  ERA
+                
+                <span className="relative text-gray-200 text-2xl md:text-4xl font-normal">
+                  <span className="absolute inset-0 [text-shadow:_0_0_4px_black] opacity-50"></span>
+                  <span className="relative">
+                    your gateway to Tech Innovation, Talent Solutions & Marketing Success — The{" "}
+                  </span>
+                </span>
+                
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 [text-shadow:_0_0_8px_black,0_0_8px_black,0_0_2px_black] opacity-80">
+                    ERA
+                  </span>
+                  <span className="relative bg-gradient-to-r from-[#FF8C00] to-[#FFD700] bg-clip-text text-transparent font-extrabold tracking-tight">
+                    ERA
+                  </span>
+                </span>{" "}
+                
+                <span className="relative text-gray-200 text-2xl md:text-4xl font-normal">
+                  <span className="absolute inset-0 [text-shadow:_0_0_4px_black] opacity-50"></span>
+                  <span className="relative">
+                    of growth.
+                  </span>
                 </span>
               </h1>
             </div>
             <div className="animate-fade-in-up animation-delay-500">
-              <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed">
-                We are a leading digital marketing agency committed to helping businesses thrive in the digital landscape with innovative strategies and cutting-edge solutions.
+              <p className="text-lg md:text-xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed">
+                We are a results-driven technology and digital solutions company, empowering businesses to grow with innovative software development and strategic digital marketing.
               </p>
             </div>
             <div className="animate-fade-in-up animation-delay-1000">
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => handleButtonClick('contact-section')}
-                  className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:shadow-2xl hover:scale-105 flex items-center justify-center"
+                  className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-3 rounded-full text-base font-semibold transition-all hover:shadow-lg hover:scale-105 flex items-center justify-center"
                 >
                   Get Started Today
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={() => handleButtonClick('clients-section')}
-                  className="group border-2 border-white text-white hover:bg-white hover:text-[#002E6E] px-8 py-4 rounded-full text-lg font-semibold transition-all hover:shadow-2xl flex items-center justify-center"
+                  className="group border-2 border-white text-white hover:bg-white hover:text-[#002E6E] px-6 py-3 rounded-full text-base font-semibold transition-all hover:shadow-lg flex items-center justify-center"
                 >
-                  View Our Work
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  View Our Clients
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
@@ -269,7 +395,7 @@ function Home() {
               </div>
               <h3 className="text-2xl font-bold text-[#002E6E] mb-4">Our Mission</h3>
               <p className="text-[#0066cc] leading-relaxed">
-                To empower businesses of all sizes with innovative, data-driven digital solutions that build strong brands, accelerate growth, and deliver measurable results across digital platforms.
+                To empower businesses with intelligent software solutions, strategic talent acquisition, and impactful digital marketing — enabling sustainable growth, operational efficiency, and brand leadership in an ever-evolving market.
               </p>
             </div>
             
@@ -279,7 +405,7 @@ function Home() {
               </div>
               <h3 className="text-2xl font-bold text-[#002E6E] mb-4">Our Vision</h3>
               <p className="text-[#0066cc] leading-relaxed">
-                To help businesses launch and grow in the digital universe through data-driven campaigns, futuristic storytelling, and performance-driven solutions that spark real results.
+                To be a trusted partner for businesses across industries by delivering next-gen software products, sourcing top-tier talent, and crafting compelling digital narratives that drive lasting success and transformation.
               </p>
             </div>
             
@@ -380,6 +506,107 @@ function Home() {
           </Link>
         </div>
       </section>
+    </div>
+  );
+}
+
+// Chatbot Component
+function Chatbot() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { text: "Hello! How can I help you today?", isBot: true }
+  ]);
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    setMessages(prev => [...prev, { text: input, isBot: false }]);
+    
+    setTimeout(() => {
+      const responses = [
+        "Thank you for your message! Our team will get back to you soon.",
+        "For immediate assistance, please contact us at +91-8309583591 or use the WhatsApp button."
+      ];
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      setMessages(prev => [...prev, { text: randomResponse, isBot: true }]);
+    }, 1000);
+    
+    setInput('');
+  };
+
+  return (
+    <div className="fixed bottom-6 left-6 z-50">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-gradient-to-r from-[#00AEEF] to-[#002E6E] hover:from-[#0099d4] hover:to-[#001f4d] text-white p-4 rounded-full shadow-2xl transition-all hover:scale-110"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8V4H8" />
+          <rect width="16" height="12" x="4" y="8" rx="2" />
+          <path d="M2 14h2" />
+          <path d="M20 14h2" />
+          <path d="M15 13v2" />
+          <path d="M9 13v2" />
+        </svg>
+      </button>
+      
+      {isOpen && (
+        <div className="absolute bottom-20 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+          <div className="bg-gradient-to-r from-[#00AEEF] to-[#002E6E] text-white p-4">
+            <div className="flex justify-between items-center">
+              <div>
+                <h3 className="font-bold">RunSera Support</h3>
+                <p className="text-sm text-blue-100">We're here to help!</p>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-gray-200 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+          
+          <div className="h-64 overflow-y-auto p-4 space-y-3 bg-gray-50">
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
+              >
+                <div
+                  className={`max-w-xs p-3 rounded-2xl ${
+                    message.isBot
+                      ? 'bg-white text-gray-800 shadow-md'
+                      : 'bg-gradient-to-r from-[#00AEEF] to-[#002E6E] text-white'
+                  }`}
+                >
+                  {message.text}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <form onSubmit={handleSubmit} className="p-4 bg-white border-t">
+            <div className="flex space-x-2">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Type your message..."
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-[#00AEEF] focus:border-transparent"
+              />
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-[#00AEEF] to-[#002E6E] hover:from-[#0099d4] hover:to-[#001f4d] text-white p-2 rounded-full transition-all"
+              >
+                <Send className="w-5 h-5" />
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

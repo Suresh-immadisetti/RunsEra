@@ -1,3 +1,5 @@
+// About.tsx
+
 import React from 'react';
 import { Shield, Zap, Award, ArrowRight, Rocket, Users, BarChart, Lightbulb, Clock, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -46,7 +48,7 @@ const About: React.FC = () => {
               About Us
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-8">
-              About <span className="text-[#00AEEF]">RunSera</span>
+              About <span className="text-[#00AEEF]">RunsEra</span>
             </h1>
             <p className="text-2xl text-gray-200 leading-relaxed">
               Leading digital transformation with innovation, expertise, and unwavering commitment to client success
@@ -68,13 +70,13 @@ const About: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-[#002E6E] mb-6">Who We Are</h2>
               <div className="text-[#0066cc] space-y-4">
                 <p className="text-lg leading-relaxed">
-                  Runsera Digital Solutions Pvt. Ltd. is a modern digital-first agency born from the vision of empowering brands to thrive in the ever-evolving digital world. Founded in Hyderabad and serving clients across India, we specialize in result-driven services such as SEO, Google & Meta Ads, Website Design & Development, Social Media Management, Content Creation, Email Marketing, Influencer Outreach, and Brand Identity.
+                  Runsera Digital Solutions Pvt. Ltd. is a dynamic tech and talent solutions company empowering brands and businesses to thrive in the digital age. Founded in Hyderabad and serving clients across India, we specialize in three core areas: cutting-edge software development, strategic HR & staffing solutions, and results-driven digital marketing.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  The name Runsera represents "Runs into a New Era" — and that's exactly what we help businesses do. With a curated team of expert freelancers, designers, developers, and marketers, Runsera offers agency-quality work with the flexibility and personal touch of a startup.
+                  The name Runsera stands for "Runs into a New Era" — and that's exactly what we help our clients achieve. With a curated team of experienced developers, recruiters, creatives, and marketers, we offer high-quality, scalable solutions with the agility of a startup.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Whether you're launching a new brand or looking to scale an existing business, we build tailored digital strategies that help you stand out, grow faster, and connect deeply with your audience.
+                  Whether you're building tech products, hiring top talent, or growing your digital presence, we tailor strategies that deliver measurable growth, brand visibility, and long-term impact.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-6">
@@ -158,7 +160,7 @@ const About: React.FC = () => {
             <div>
               <h3 className="text-4xl font-extrabold text-[#002E6E] mb-6">Our Mission</h3>
               <p className="text-lg text-[#0066cc]">
-                To empower businesses of all sizes with innovative, data-driven digital solutions that build strong brands, accelerate growth, and deliver measurable results across digital platforms.
+                To empower businesses with intelligent software solutions, strategic talent acquisition, and impactful digital marketing — enabling sustainable growth, operational efficiency, and brand leadership in an ever-evolving market.
               </p>
             </div>
             <div>
@@ -181,7 +183,7 @@ const About: React.FC = () => {
             <div className="order-1 md:order-2">
               <h3 className="text-4xl font-extrabold text-[#00AEEF] mb-6">Our Vision</h3>
               <p className="text-lg text-[#0066cc]">
-                To help businesses launch and grow in the digital universe through data-driven campaigns, futuristic storytelling, and performance-driven solutions that spark real results.
+                To be a trusted partner for businesses across industries by delivering next-gen software products, sourcing top-tier talent, and crafting compelling digital narratives that drive lasting success and transformation.
               </p>
             </div>
           </div>

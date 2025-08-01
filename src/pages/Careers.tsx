@@ -1,13 +1,13 @@
 import React from 'react';
-import { MapPin, Clock, DollarSign } from 'lucide-react';
+import { MapPin, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface JobOpening {
   title: string;
   location: string;
   type: string;
-  salary: string;
   description: string;
+  experience: string;
 }
 
 interface Benefit {
@@ -19,25 +19,74 @@ interface Benefit {
 function Careers() {
   const openings: JobOpening[] = [
     {
-      title: "Digital Marketing Specialist",
+      title: "Junior Full Stack Developer",
       location: "Remote",
       type: "Full-time",
-      salary: "Competitive",
-      description: "Join our team to create and execute innovative digital marketing campaigns."
+      description: "Develop web applications using modern frameworks like React and Node.js. Great opportunity for recent graduates.",
+      experience: "0-2 years"
     },
     {
-      title: "Frontend Developer",
+      title: "Entry-Level Java Developer",
       location: "Hybrid",
       type: "Full-time",
-      salary: "Competitive",
-      description: "Build beautiful and responsive web applications using modern technologies."
+      description: "Work with Java applications and learn Spring framework. Training provided for fresh graduates.",
+      experience: "0-1 years"
     },
     {
-      title: "SEO Analyst",
+      title: "Associate DevOps Engineer",
       location: "Remote",
-      type: "Part-time",
-      salary: "Competitive",
-      description: "Help improve our clients' search engine rankings and online visibility."
+      type: "Full-time",
+      description: "Learn CI/CD pipelines and cloud infrastructure with mentorship from senior team members.",
+      experience: "1-3 years"
+    },
+    {
+      title: "Junior Frontend Developer",
+      location: "Hybrid",
+      type: "Full-time",
+      description: "Build responsive UIs using React with guidance from experienced developers.",
+      experience: "0-2 years"
+    },
+    {
+      title: "SQL Developer Trainee",
+      location: "Remote",
+      type: "Full-time",
+      description: "Learn database design and SQL query optimization in a supportive team environment.",
+      experience: "0-1 years"
+    },
+    {
+      title: "QA Engineer (Entry Level)",
+      location: "Hybrid",
+      type: "Full-time",
+      description: "Start your career in quality assurance with our comprehensive training program.",
+      experience: "0-1 years"
+    },
+    {
+      title: "Junior UI/UX Designer",
+      location: "Remote",
+      type: "Full-time",
+      description: "Create user interfaces while learning from our design team. Portfolio required.",
+      experience: "0-2 years"
+    },
+    {
+      title: "Data Science Associate",
+      location: "Hybrid",
+      type: "Full-time",
+      description: "Entry-level position for recent graduates with strong statistics and programming skills.",
+      experience: "0-2 years"
+    },
+    {
+      title: "Mobile Developer (Junior)",
+      location: "Remote",
+      type: "Full-time",
+      description: "Build mobile apps using React Native with mentorship from senior developers.",
+      experience: "1-3 years"
+    },
+    {
+      title: "HR Technology Trainee",
+      location: "Remote",
+      type: "Full-time",
+      description: "Begin your career in HR tech with our onboarding and training program.",
+      experience: "0-1 years"
     }
   ];
 
@@ -49,12 +98,12 @@ function Careers() {
   };
 
   const benefits: Benefit[] = [
-    { title: "Growth Opportunities", description: "Continuous learning and career advancement", icon: "📈" },
-    { title: "Flexible Work", description: "Remote and hybrid work options available", icon: "🏠" },
-    { title: "Great Benefits", description: "Competitive salary and comprehensive benefits", icon: "💼" },
-    { title: "Innovation Focus", description: "Work with cutting-edge technologies", icon: "🚀" },
+    { title: "Growth Opportunities", description: "Structured career path for junior developers", icon: "📈" },
+    { title: "Mentorship Program", description: "Learn from experienced tech professionals", icon: "🧑‍🏫" },
+    { title: "Training Budget", description: "Annual allowance for courses and certifications", icon: "🎓" },
+    { title: "Beginner-Friendly", description: "Supportive environment for new developers", icon: "🛟" },
     { title: "Team Culture", description: "Collaborative and supportive environment", icon: "🤝" },
-    { title: "Work-Life Balance", description: "Flexible hours and time-off policies", icon: "⚖️" }
+    { title: "Work-Life Balance", description: "Flexible hours for better productivity", icon: "⚖️" }
   ];
 
   return (
@@ -74,10 +123,10 @@ function Careers() {
               Careers
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-8">
-              Join Our <span className="text-[#00AEEF]">Team</span>
+              Start Your <span className="text-[#00AEEF]">Tech Career</span>
             </h1>
             <p className="text-2xl text-gray-200 leading-relaxed">
-              Be part of our mission to transform businesses digitally
+              Launch your journey in software development with our entry-level positions
             </p>
           </div>
         </div>
@@ -92,8 +141,8 @@ function Careers() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#002E6E] mb-6">Why Work With Us?</h2>
-            <p className="text-xl text-[#0066cc]">Discover the benefits of joining the RunSera family</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#002E6E] mb-6">Why Start Your Career Here?</h2>
+            <p className="text-xl text-[#0066cc]">Perfect environment for new developers to learn and grow</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -109,19 +158,24 @@ function Careers() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]">
+      <section className="py-20 bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]" id="open-positions">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#002E6E] mb-6">Open Positions</h2>
-            <p className="text-xl text-[#0066cc]">Find your next career opportunity</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#002E6E] mb-6">Entry-Level Positions</h2>
+            <p className="text-xl text-[#0066cc]">Begin your tech journey with these starter roles</p>
           </div>
           
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {openings.map((job, index) => (
               <div key={index} className="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow border border-gray-100">
-                <div className="flex flex-col md:flex-row md:items-center justify-between">
+                <div className="flex flex-col h-full">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-[#002E6E] mb-3">{job.title}</h3>
+                    <h3 className="text-2xl font-bold text-[#002E6E] mb-2">{job.title}</h3>
+                    <div className="flex items-center mb-3">
+                      <span className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">
+                        {job.experience} experience
+                      </span>
+                    </div>
                     <p className="text-gray-600 mb-4">{job.description}</p>
                     <div className="flex flex-wrap gap-4 text-sm text-gray-600">
                       <div className="flex items-center">
@@ -132,16 +186,12 @@ function Careers() {
                         <Clock className="w-4 h-4 mr-1 text-[#00AEEF]" />
                         {job.type}
                       </div>
-                      <div className="flex items-center">
-                        <DollarSign className="w-4 h-4 mr-1 text-[#00AEEF]" />
-                        {job.salary}
-                      </div>
                     </div>
                   </div>
-                  <div className="mt-6 md:mt-0 md:ml-6">
+                  <div className="mt-6">
                     <button 
                       onClick={() => handleApply(job.title)}
-                      className="bg-gradient-to-r from-[#00AEEF] to-[#002E6E] text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all transform hover:scale-105"
+                      className="w-full bg-gradient-to-r from-[#00AEEF] to-[#002E6E] text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all transform hover:scale-105"
                     >
                       Apply Now
                     </button>
@@ -157,23 +207,26 @@ function Careers() {
       <section className="py-24 bg-gradient-to-r from-[#002E6E] to-[#00AEEF] text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Ready to Make an Impact?
+            Ready to Start Your Tech Journey?
           </h2>
           <p className="text-2xl text-gray-200 max-w-2xl mx-auto mb-12">
-            We're always looking for talented individuals who share our passion for digital innovation.
+            We're excited to help new developers launch their careers
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => {
+                const positions = document.getElementById('open-positions');
+                positions?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="inline-block bg-white text-[#002E6E] hover:bg-gray-100 font-medium px-8 py-4 rounded-lg transition-transform transform hover:scale-105"
             >
-              View Open Positions
+              View Entry-Level Roles
             </button>
             <button 
-              onClick={() => handleApply('a position at RunSera')}
+              onClick={() => handleApply('an entry-level position at RunSera')}
               className="inline-block border-2 border-white text-white hover:bg-white hover:text-[#002E6E] font-medium px-8 py-4 rounded-lg transition-transform transform hover:scale-105"
             >
-              Submit Resume
+              Submit Your Application
             </button>
           </div>
         </div>

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { servicesList } from './servicesData';
 
+// Assuming you have a background image in your assets
+import headerBackground from '../assets/services-header-bg.jpg';
+
 interface ServiceCardProps {
   id: string;
   name: string;
@@ -20,8 +23,11 @@ interface ProcessStepProps {
 const ServicesPage: React.FC = () => {
   return (
     <div className="pt-16">
-      {/* Header Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white">
+      {/* Header Section with Background Image */}
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat text-white"
+        style={{ backgroundImage: `url(${headerBackground})` }}
+      >
         <div className="absolute inset-0 bg-[#002E6E]/80"></div>
         <div className="relative z-10 container mx-auto px-4 py-28 text-center">
           <div className="max-w-3xl mx-auto">
