@@ -2,55 +2,119 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <base href="./" /> <!-- ✅ Crucial for routing to work correctly -->
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <base href="./" />
+    
+    <!-- ====================== Favicon Settings ====================== -->
+    <link rel="icon" type="image/png" href="../assets/logo-white.png" />
+    <!-- For best results, also add these additional sizes (recommended) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo-white-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo-white-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logo-white-16x16.png">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RunSera - Digital Marketing Excellence | Transform Your Business</title>
-    <meta name="description" content="RunSera is a leading digital marketing agency helping businesses thrive with innovative strategies, web development, SEO, and mobile app solutions. Transform your digital presence today." />
-    <meta name="keywords" content="digital marketing, web development, SEO services, mobile app development, RunSera, digital transformation, online marketing, social media marketing" />
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="RunSera - Digital Marketing Excellence" />
-    <meta property="og:description" content="Transform your business with RunSera's expert digital marketing solutions. We help businesses thrive in the digital landscape." />
+    <!-- ====================== Primary Meta Tags ====================== -->
+    <title>RunSera | End-to-End Business Solutions - Software Development | HR & Staffing | Digital Marketing</title>
+    <meta name="description" content="RunSera delivers integrated business solutions: Custom software development, strategic HR staffing services, and data-driven digital marketing strategies. Partner with experts for growth."/>
+    <meta name="keywords" content="software development company, HR staffing solutions, IT recruitment, digital marketing agency, web development, mobile app development, talent acquisition, SEO services, IT staffing, business technology solutions"/>
+    
+    <!-- ====================== Open Graph / Facebook ====================== -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://runsera.com" />
-    <meta property="og:image" content="./og-image.jpg" />
+    <meta property="og:url" content="https://runsera.com/" />
+    <meta property="og:title" content="RunSera | End-to-End Business Solutions" />
+    <meta property="og:description" content="Software Development | HR Staffing | Digital Marketing - Comprehensive solutions for business growth" />
+    <meta property="og:image" content="../assets/runsera-og-image.jpg" />
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RunSera - Digital Marketing Excellence" />
-    <meta name="twitter:description" content="Transform your business with expert digital marketing solutions." />
-    <meta name="twitter:image" content="./twitter-image.jpg" />
+    <!-- ====================== Twitter ====================== -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://runsera.com/" />
+    <meta property="twitter:title" content="RunSera | End-to-End Business Solutions" />
+    <meta property="twitter:description" content="Software Development | HR Staffing | Digital Marketing - Comprehensive solutions for business growth" />
+    <meta property="twitter:image" content="../assets/runsera-twitter-card.jpg" />
     
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="RunSera" />
-    <link rel="canonical" href="https://runsera.com" />
+    <!-- ====================== SEO Enhancements ====================== -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="RunSera Technologies" />
+    <meta name="copyright" content="RunSera" />
+    <link rel="canonical" href="https://runsera.com/" />
     
-    <!-- Preconnect for performance -->
+    <!-- ====================== Mobile Specific ====================== -->
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- ====================== Preconnects for Performance ====================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com">
     
-    <!-- Schema.org structured data -->
+    <!-- ====================== Structured Data ====================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "RunSera",
-      "description": "Leading digital marketing agency providing web development, SEO, and mobile app solutions",
+      "legalName": "RunSera Technologies Pvt. Ltd.",
       "url": "https://runsera.com",
-      "logo": "https://runsera.com/logo.png",
+      "logo": "https://runsera.com/assets/logo-white.png",
+      "foundingDate": "2020",
+      "founders": [{
+        "@type": "Person",
+        "name": "Your Founder Name"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Your Street Address",
+        "addressLocality": "Your City",
+        "addressRegion": "Your State",
+        "postalCode": "Your ZIP",
+        "addressCountry": "India"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
+        "contactType": "customer support",
         "telephone": "+91-8309583591",
-        "contactType": "customer service",
-        "availableLanguage": "English"
+        "email": "contact@runsera.com"
       },
       "sameAs": [
         "https://facebook.com/runsera",
         "https://twitter.com/runsera",
         "https://linkedin.com/company/runsera",
         "https://instagram.com/runsera"
+      ],
+      "department": [
+        {
+          "@type": "Organization",
+          "name": "Software Development",
+          "description": "Custom software solutions, web applications, and mobile app development",
+          "makesOffer": [
+            "Web Development",
+            "Mobile App Development",
+            "Enterprise Software",
+            "Cloud Solutions"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "name": "HR & Staffing Solutions",
+          "description": "Comprehensive staffing solutions, talent acquisition, and workforce management",
+          "makesOffer": [
+            "IT Recruitment",
+            "Permanent Staffing",
+            "Contract Staffing",
+            "Executive Search"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "name": "Digital Marketing",
+          "description": "Data-driven digital marketing strategies for business growth",
+          "makesOffer": [
+            "SEO Services",
+            "Social Media Marketing",
+            "PPC Advertising",
+            "Content Marketing"
+          ]
+        }
       ]
     }
     </script>
@@ -59,5 +123,14 @@
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- ====================== Performance Tracking ====================== -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <!-- End Google Tag Manager -->
   </body>
 </html>
