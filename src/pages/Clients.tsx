@@ -4,9 +4,9 @@ import { Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import client logos from assets
-import AlekasLogo from '../assets/clients/alekas-logo.png';
+import AmoraLogo from '../assets/clients/amora-logo.png';
 import PragatiLogo from '../assets/clients/pragati-logo.png';
-import AkarshLogo from '../assets/clients/akarsh-logo.png';
+import ChandhamamaLogo from '../assets/clients/chandamama-logo.png';
 import RgInfraLogo from '../assets/clients/rg-infra-logo.png';
 import RivaLogo from '../assets/clients/riva-logo.png';
 import LuminousLogo from '../assets/clients/luminous-logo.png';
@@ -15,10 +15,10 @@ import KrishnaLogo from '../assets/clients/krihna-logo.png';
 function Clients() {
   const clients = [
     { 
-      name: "Alekas Solutions Pvt Ltd", 
-      logo: AlekasLogo, 
-      industry: "Technology", 
-      description: "Digital transformation and web development solutions" 
+      name: "Amora Collections", 
+      logo: AmoraLogo, 
+      industry: "Clothing Business", 
+      description: "Digital clothing business platform" 
     },
     { 
       name: "Pragati Green Meadows and Resorts Pvt Ltd", 
@@ -27,9 +27,9 @@ function Clients() {
       description: "Resort management and booking platform" 
     },
     { 
-      name: "Akarsh Digitals Pvt Ltd", 
-      logo: AkarshLogo, 
-      industry: "Digital Marketing", 
+      name: "Chandamama Events", 
+      logo: ChandhamamaLogo, 
+      industry: "Event Management Organization", 
       description: "Comprehensive digital marketing campaigns" 
     },
     { 

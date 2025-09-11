@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { servicesList } from './servicesData';
 
 // Import client logos from assets
-import AlekasLogo from '../assets/clients/alekas-logo.png';
+import AmoraLogo from '../assets/clients/amora-logo.png';
 import PragatiLogo from '../assets/clients/pragati-logo.png';
-import AkarshLogo from '../assets/clients/akarsh-logo.png';
+import chandamamaLogo from '../assets/clients/chandamama-logo.png';
 import RgInfraLogo from '../assets/clients/rg-infra-logo.png';
 import RivaLogo from '../assets/clients/riva-logo.png';
 import LuminousLogo from '../assets/clients/luminous-logo.png';
@@ -15,9 +15,9 @@ import KrishnaLogo from '../assets/clients/krihna-logo.png';
 function Home() {
   const clients = [
     { 
-      name: "Alekas Solutions Pvt Ltd", 
-      logo: AlekasLogo,
-      description: "Technology solutions provider"
+      name: "Amora Collections", 
+      logo: AmoraLogo,
+      description: "Clothing Business provider"
     },
     { 
       name: "Pragati Green Meadows and Resorts Pvt Ltd", 
@@ -25,9 +25,9 @@ function Home() {
       description: "Luxury hospitality group"
     },
     { 
-      name: "Akarsh Digitals Pvt Ltd", 
-      logo: AkarshLogo,
-      description: "Information Technologies"
+      name: "Chandamama Events", 
+      logo: chandamamaLogo,
+      description: "Chandhamama Event Organizers"
     },
     { 
       name: "RG Infra Developers", 
